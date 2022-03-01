@@ -20,5 +20,6 @@
   "bugs": {
     "url": "https://github.com/comp426-2022-spring/a03-MayteeAkk/issues"
   },
-  "homepage": "https://github.com/comp426-2022-spring/a03-MayteeAkk#readme"
+  "homepage": "https://github.com/comp426-2022-spring/a03-MayteeAkk#readme",
+  "type": "module"
 }
