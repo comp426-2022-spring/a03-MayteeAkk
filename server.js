@@ -1,3 +1,6 @@
+//Import Functions
+const { coinFlip, coinFlips, countFlips, flipACoin } = require('./modules/coin.js');
+
 //Require Express.js
 const express = require('express');
 const app = express();
@@ -19,14 +22,19 @@ app.get('/app/echo/:number', (req, res) => {
 })
 
 //Defining Check Endpoint
-//Coin Flip Function
-function coinFlip() {
-    return Math.random() > 0.5 ? 'heads' : 'tails';
-}
-
 app.get('/app/flip', (req, res) => {
     let flip = coinFlip();
     res.status(200).json({ "flip": flip })
+})
+
+app.get('/app/flips/:number', (req, res) => {
+    const result = coinFlips(parseInt(req.params.number))
+    const count = countFlips(result)
+    res.status(200).json({"raw": result, "summary": count})
+})
+
+app.get('/app/flip/call/:call', (req, res) => {
+    res.status(200).json(flipACoin(req.params.call))
 })
 
 //Default Reponse for Any Other Request
@@ -39,15 +47,7 @@ app.use(function(req, res) {
 
 
 
-// app.get('/app/flips/:number', (req, res) => {
-//     const result = coinFlips(parseInt(req.params.number))
-//     const count = countFlips(result)
-//     res.status(200).json({"raw": result, "summary": count})
-// })
 
-// app.get('/app/flip/call/:call', (req, res) => {
-//     res.status(200).json(flipACoin(req.params.call))
-// })
 
 
 
