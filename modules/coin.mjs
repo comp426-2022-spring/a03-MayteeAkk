@@ -14,7 +14,7 @@
  * 
  */
 
-export function coinFlip() {
+function coinFlip() {
   return Math.random() > 0.5 ? 'heads' : 'tails';
 }
 

@@ -1,5 +1,3 @@
-// import {coinFlip, coinFlips, countFlips, flipACoin} from './modules/coin.mjs';
-
 //Require Express.js
 const express = require('express');
 const app = express();
@@ -18,8 +16,17 @@ app.get('/app', (req, res) => {
 
 app.get('/app/echo/:number', (req, res) => {
     res.status(200).json({ "message": req.params.number });
-    
-    
+})
+
+//Defining Check Endpoint
+//Coin Flip Function
+function coinFlip() {
+    return Math.random() > 0.5 ? 'heads' : 'tails';
+}
+
+app.get('/app/flip', (req, res) => {
+    let flip = coinFlip();
+    res.status(200).json({ "flip": flip })
 })
 
 //Default Reponse for Any Other Request
@@ -28,10 +35,9 @@ app.use(function(req, res) {
     res.type("text/plain");
 });
 
-// //Defining Check Endpoint
-// app.get('/app/flip', (req, res) => {
-//     res.status(200).json({"flip": coinFlip()})
-// })
+
+
+
 
 // app.get('/app/flips/:number', (req, res) => {
 //     const result = coinFlips(parseInt(req.params.number))
