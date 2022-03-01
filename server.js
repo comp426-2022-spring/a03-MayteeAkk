@@ -1,4 +1,4 @@
-const {coinFlip, countFlips, countFlips, flipACoin} = require('./modules/coin.mjs');
+const {coinFlip, coinFlips, countFlips, flipACoin} = require('./modules/coin.mjs');
 
 //Require Express.js
 var express = require("express");
