@@ -11,6 +11,12 @@ const server = app.listen(port, () => {
     console.log("App listening on port %PORT%".replace("%PORT%", port));
 });
 
+app.get('/app', (req, res) => {
+    res.status(200).end("OK");
+    res.type("text/plain");
+})
+
+
 //Default Reponse for Any Other Request
 app.use(function(req, res) {
     res.status(404).end("Endpoint does not exist");
@@ -32,10 +38,5 @@ app.use(function(req, res) {
 //     res.status(200).json(flipACoin(req.params.call))
 // })
 
-// app.get('/app', (req, res) => {
-//     res.statusMessage = 'OK';
-//     res.writeHead( res.statusCode, { 'Content-Type' : 'text/plain' });
-//     res.end(res.statusCode+ ' ' +res.statusMessage)
-// })
 
 
