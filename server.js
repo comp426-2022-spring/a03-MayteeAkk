@@ -16,6 +16,11 @@ app.get('/app', (req, res) => {
     res.type("text/plain");
 })
 
+app.get('/app/echo/:number', (req, res) => {
+    res.status(200).json({ "message": req.params.number });
+    
+    
+})
 
 //Default Reponse for Any Other Request
 app.use(function(req, res) {
