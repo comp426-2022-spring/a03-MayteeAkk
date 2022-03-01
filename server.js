@@ -5,7 +5,7 @@ var express = require("express");
 const app = express();
 
 const args = require('minimist')(process.argv.slice(2));
-var HTTP_PORT = process.env.PORT || 3000;
+var HTTP_PORT = process.env.PORT || 5000;
 
 //Starting an App Server
 const server = app.listen(HTTP_PORT, () => {
