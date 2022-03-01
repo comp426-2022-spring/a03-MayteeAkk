@@ -5,7 +5,9 @@ const { coinFlip, coinFlips, countFlips, flipACoin } = require('./modules/coin.j
 const express = require('express');
 const app = express();
 
-var port = 5000;
+const args = require("minimist")(process.argv.slice(2));
+
+const port = args.port || 5555;
 
 //Starting an App Server
 const server = app.listen(port, () => {
